@@ -105,8 +105,8 @@ M.setup = function(opts)
     if opts['antonyms'] then
       M.add_dictionary(opts['antonyms'])
     end
-    if opts['keys'] then
-      vim.keymap.set('n', opts['keys'], '<cmd>AntonymWord<CR>')
+    if opts['key'] then
+      vim.keymap.set('n', opts['key'], '<cmd>AntonymWord<CR>')
     end
   end
 
