@@ -61,7 +61,7 @@ require('antonym').setup({
 ## 列表
 <details><summary>默认的替换列表：</summary>
 
-|word a|word b|
+|word_a|word_b|
 |-|-|
 |acquire|release|
 |add|remove|
@@ -125,7 +125,6 @@ require('antonym').setup({
 |send|receive|
 |serialize|deserialize|
 |set|unset|
-|set|up tear down|
 |show|hide|
 |start|stop|
 |true|false|

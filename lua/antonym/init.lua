@@ -87,7 +87,6 @@ M.setup = function(opts)
     { 'send', 'receive' },
     { 'serialize', 'deserialize' },
     { 'set', 'unset' },
-    { 'set', 'up tear down' },
     { 'show', 'hide' },
     { 'start', 'stop' },
     { 'true', 'false' },
