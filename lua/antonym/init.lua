@@ -20,6 +20,12 @@ end
 M.replace = function()
   if M.dictionary[cword()] then
     M.replace_word(M.dictionary[cword()])
+  else
+    print(
+      "No antonyms found for the word '" ..
+      cword() ..
+      "'. Add words with ':lua require('antonym').add_dictionary({{'word1', 'word2'}})'"
+    )
   end
 end
 
