@@ -5,7 +5,7 @@
 
 [Chinese README](https://github.com/gczcn/antonym.nvim/blob/main/README.zh_CN.md)
 
-## Installing
+## Installation
 #### Lua
 ###### With [lazy.nvim](https://github.com/folke/lazy.nvim)
 ```lua
