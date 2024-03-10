@@ -145,8 +145,7 @@ require('antonym').setup({
 require('antonym').dictionary['word'] -- 'word' 是你要查找的单词。
 ```
 
-如果你需要添加一组单词，可以这么做：
-
+如果你需要添加一组单词，可以这么做：  
 下面是添加'a'和'b'对应关系的例子。
 ```lua
 require('antonym').add_dictionary({{'a', 'b'}})

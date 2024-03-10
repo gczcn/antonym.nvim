@@ -146,8 +146,7 @@ If you want to view the value corresponding to a certain word, you can use:
 require('antonym').dictionary['word'] -- 'word' is the word you want to find.
 ```
 
-If you need to add a group of words, you can do this:
-
+If you need to add a group of words, you can do this:  
 The following is an example of adding the correspondence between 'a' and 'b':
 ```lua
 require('antonym').add_dictionary({{'a', 'b'}})
