@@ -2,15 +2,30 @@ local cmd = 'AntonymWord'
 local M = {}
 M.dictionary = {}
 
+M.del_dictionary = function(del)
+  for _, t in ipairs(del) do
+    M.dictionary[t[1]] = nil
+    if t[2] then
+      M.dictionary[t[2]] = nil
+    end
+  end
+end
+
 M.add_dictionary = function(antonyms)
   for _, t in ipairs(antonyms) do
     M.dictionary[t[1]] = t[2]
-    M.dictionary[t[2]] = t[1]
+    if t['mode'] then
+      if t['mode'] ~= 'single' then
+        M.dictionary[t[2]] = t[1]
+      end
+    else
+      M.dictionary[t[2]] = t[1]
+    end
   end
 end
 
 M.replace_word = function(rep)
-	vim.cmd("normal! ciw" .. rep)
+  vim.cmd("normal! ciw" .. rep)
 end
 
 local cword = function()
@@ -109,6 +124,9 @@ M.setup = function(opts)
   if opts then
     if opts['antonyms'] then
       M.add_dictionary(opts['antonyms'])
+    end
+    if opts['del'] then
+      M.del_dictionary(opts['del'])
     end
     if opts['key'] then
       vim.keymap.set('n', opts['key'], '<cmd>AntonymWord<CR>')
