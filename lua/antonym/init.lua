@@ -4,9 +4,13 @@ M.dictionary = {}
 
 M.del_dictionary = function(del)
   for _, t in ipairs(del) do
-    M.dictionary[t[1]] = nil
-    if t[2] then
-      M.dictionary[t[2]] = nil
+    if M.dictionary[t[1]] then
+      M.dictionary[t[1]] = nil
+      if t[2] then
+        if M.dictionary[t[2]] then
+          M.dictionary[t[2]] = nil
+        end
+      end
     end
   end
 end
