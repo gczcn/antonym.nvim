@@ -146,10 +146,21 @@ require('antonym').dictionary['word'] -- 'word' 是你要查找的单词。
 ```
 
 如果你需要添加一组单词，可以这么做：  
-下面是添加'a'和'b'对应关系的例子。
+下面是添加`a`和`b`对应关系的例子。
 ```lua
 require('antonym').add_dictionary({{'a', 'b'}})
 ```
+如果你只想添加单个单词，可以这么做：  
+下面是一个仅将`true`改为`0`，而不变动`false`
+```lua
+require('antonym').add_dictionary({{'true', '0', mode = 'single'}})
+```
+要删除一个或一组对应关系，你可以这么做：
+下面是一个删除`true`和`false`对应关系的例子
+```lua
+require('antonym').del_dictionary({{'true', 'false'}})
+```
+
 
 ## 配置
 该插件有以下可用设置：
@@ -159,6 +170,8 @@ require('antonym').setup({
     -- 在此处添加或覆盖匹配项。
     -- 例如：
     { 'worda', 'wordb' }
+    -- 也可以用于删除
+    { 'worda', 'wordb', del = true }
   },
   -- 插件加载时，此项用于设置替换单词的快捷键。
   -- 不推荐使用此方法！

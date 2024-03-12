@@ -147,9 +147,19 @@ require('antonym').dictionary['word'] -- 'word' is the word you want to find.
 ```
 
 If you need to add a group of words, you can do this:  
-The following is an example of adding the correspondence between 'a' and 'b':
+The following is an example of adding the correspondence between `a` and `b`:
 ```lua
 require('antonym').add_dictionary({{'a', 'b'}})
+```
+If you just want to add a single word replacement, do this:  
+The following is an example of changing the corresponding value of `true` to `0` without changing the value of `false`.
+```lua
+require('antonym').add_dictionary({{'true', '0', mode = 'single'}})
+```
+To delete a relationship or a set of correspondences, you can do this:  
+The following is an example of deleting the corresponding relationship between `true` and `false`
+```lua
+require('antonym').del_dictionary({{'true', 'false'}})
 ```
 
 ## Configuration
@@ -160,6 +170,8 @@ require('antonym').setup({
     -- Add or override matches here.
     -- For example:
     { 'worda', 'wordb' }
+    -- Can also be used to delete
+    { 'worda', 'wordb', del = true }
   },
   -- When the plug-in is loaded, this item is used to set a shortcut key for replacing the word.
   -- This method is not recommended!
