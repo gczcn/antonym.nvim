@@ -28,6 +28,16 @@ M.add_dictionary = function(antonyms)
   end
 end
 
+M.change_dictionary = function(antonyms)
+  for _, t in ipairs(antonyms) do
+    if t['del'] then
+      M.del_dictionary({t})
+    else
+      M.add_dictionary({t})
+    end
+  end
+end
+
 M.replace_word = function(rep)
   vim.cmd("normal! ciw" .. rep)
 end
@@ -127,11 +137,11 @@ M.setup = function(opts)
   })
   if opts then
     if opts['antonyms'] then
-      M.add_dictionary(opts['antonyms'])
+      M.change_dictionary(opts['antonyms'])
     end
-    if opts['del'] then
-      M.del_dictionary(opts['del'])
-    end
+    -- if opts['del'] then
+    --   M.del_dictionary(opts['del'])
+    -- end
     if opts['key'] then
       vim.keymap.set('n', opts['key'], '<cmd>AntonymWord<CR>')
     end
