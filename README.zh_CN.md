@@ -3,7 +3,7 @@
 
 ![Example usage](Video.gif)
 
-[英文自述文件](https://github.com/gczcn/antonym.nvim)
+[English](README.md)
 
 ## 安装
 #### Lua
