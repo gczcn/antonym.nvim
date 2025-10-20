@@ -7,6 +7,15 @@
 
 ## Installation
 #### Lua
+###### With `vim.pack` in Neovim 0.12
+```lua
+vim.pack.add({
+  'https://github.com/gczcn/antonym.nvim',
+})
+
+require('antonym').setup({})
+```
+
 ###### With [lazy.nvim](https://github.com/folke/lazy.nvim)
 ```lua
 return {
@@ -30,6 +39,17 @@ use {
 ```
 
 #### Vimscript
+###### With `vim.pack` in Neovim 0.12
+```vim
+lua << EOF
+  vim.pack.add({
+    'https://github.com/gczcn/antonym.nvim',
+  })
+
+  require('antonym').setup({})
+EOF
+```
+
 ###### With [vim-plug](https://github.com/junegunn/vim-plug)
 ```vim
 call plug#begin()

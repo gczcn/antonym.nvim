@@ -7,6 +7,15 @@
 
 ## 安装
 #### Lua
+###### 使用 Neovim 0.12 中的 `vim.pack`
+```lua
+vim.pack.add({
+  'https://github.com/gczcn/antonym.nvim',
+})
+
+require('antonym').setup({})
+```
+
 ###### 使用 [lazy.nvim](https://github.com/folke/lazy.nvim)
 ```lua
 return {
@@ -30,6 +39,17 @@ use {
 ```
 
 #### Vimscript
+###### 使用 Neovim 0.12 中的 `vim.pack`
+```vim
+lua << EOF
+  vim.pack.add({
+    'https://github.com/gczcn/antonym.nvim',
+  })
+
+  require('antonym').setup({})
+EOF
+```
+
 ###### 使用 [vim-plug](https://github.com/junegunn/vim-plug)
 ```vim
 call plug#begin()
