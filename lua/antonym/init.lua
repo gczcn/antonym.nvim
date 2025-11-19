@@ -1,20 +1,22 @@
 local cmd = 'AntonymWord'
+
+---@class Antonym
 local M = {}
 M.dictionary = {}
 
+---@param del table
 M.del_dictionary = function(del)
   for _, t in ipairs(del) do
     if M.dictionary[t[1]] then
       M.dictionary[t[1]] = nil
-      if t[2] then
-        if M.dictionary[t[2]] then
-          M.dictionary[t[2]] = nil
-        end
+      if t[2] and M.dictionary[t[2]] then
+        M.dictionary[t[2]] = nil
       end
     end
   end
 end
 
+---@param antonyms table
 M.add_dictionary = function(antonyms)
   for _, t in ipairs(antonyms) do
     M.dictionary[t[1]] = t[2]
@@ -28,6 +30,7 @@ M.add_dictionary = function(antonyms)
   end
 end
 
+---@param antonyms table
 M.change_dictionary = function(antonyms)
   for _, t in ipairs(antonyms) do
     if t['del'] then
@@ -38,10 +41,12 @@ M.change_dictionary = function(antonyms)
   end
 end
 
+---@param rep string
 M.replace_word = function(rep)
   vim.cmd('normal! ciw' .. rep)
 end
 
+---@return string
 local cword = function()
   return vim.fn.expand('<cword>')
 end
